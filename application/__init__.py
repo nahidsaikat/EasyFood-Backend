@@ -5,9 +5,13 @@ from flask_sqlalchemy import SQLAlchemy
 # Globally accessible libraries
 db = SQLAlchemy()
 
+
 def create_app():
     """Initialize the core application."""
-    app = Flask(__name__, instance_relative_config=False)
+    app = Flask(__name__,
+                instance_relative_config=False,
+                template_folder="templates",
+                static_folder="static")
     app.config.from_object('config.DevConfig')
 
     # Initialize Plugins
