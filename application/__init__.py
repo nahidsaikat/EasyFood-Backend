@@ -1,8 +1,10 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_wtf import CsrfProtect
 
 
 # Globally accessible libraries
+csrf = CsrfProtect()
 db = SQLAlchemy()
 
 
@@ -15,6 +17,7 @@ def create_app():
     app.config.from_object('config.DevConfig')
 
     # Initialize Plugins
+    csrf.init_app(app)
     db.init_app(app)
 
     with app.app_context():
