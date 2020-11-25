@@ -1,10 +1,10 @@
 """Route declaration."""
 from flask import current_app as app
 from flask import (
-    Flask,
     url_for,
     render_template,
-    redirect
+    redirect,
+    make_response
 )
 
 from .forms import ContactForm
@@ -19,6 +19,11 @@ def contact():
         'contact.html',
         form=form
     )
+
+
+@app.route('/success')
+def success():
+    return make_response('This is success page', 200, {})
 
 
 @app.route('/')

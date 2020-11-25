@@ -37,7 +37,7 @@ class ContactForm(FlaskForm):
             message=('Your message is too short.'))
         ]
     )
-    recaptcha = RecaptchaField()
+    recaptcha = RecaptchaField(default='')
     submit = SubmitField('Submit')
 
 
