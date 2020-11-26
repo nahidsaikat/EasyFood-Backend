@@ -14,7 +14,12 @@ def create_app():
                 instance_relative_config=False,
                 template_folder="templates",
                 static_folder="static")
-    app.config.from_object('config.DevConfig')
+    if app.config['ENV'] == 'production':
+        app.config.from_object('config.ProdConfig')
+    elif app.config['ENV'] == 'testing':
+        app.config.from_object('config.TestConfig')
+    else:
+        app.config.from_object('config.DevConfig')
 
     # Initialize Plugins
     csrf.init_app(app)
