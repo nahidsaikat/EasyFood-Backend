@@ -3,8 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import CSRFProtect
 from flask_assets import Environment
 
-from application.assets import compile_static_assets
-from application.urls import register_all_blueprints
+from easy_food.assets import compile_static_assets
+from easy_food.urls import register_all_blueprints
 
 
 csrf = CSRFProtect()

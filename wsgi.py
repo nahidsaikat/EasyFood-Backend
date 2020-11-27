@@ -1,4 +1,4 @@
-from application import create_app
+from easy_food import create_app
 
 app = create_app()
 
