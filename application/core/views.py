@@ -1,5 +1,4 @@
 """Route declaration."""
-from flask import current_app as app
 from flask import (
     Blueprint,
     url_for,
