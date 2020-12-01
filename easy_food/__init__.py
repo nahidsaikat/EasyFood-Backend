@@ -4,7 +4,6 @@ from flask_wtf import CSRFProtect
 from flask_assets import Environment
 
 from easy_food.assets import compile_static_assets
-from easy_food.urls import register_all_blueprints
 
 
 csrf = CSRFProtect()
@@ -29,7 +28,10 @@ def create_app():
     assets.init_app(app)
 
     with app.app_context():
+        from easy_food.urls import register_all_blueprints
         register_all_blueprints(app)
 
         compile_static_assets(assets)
+
+        db.create_all()
         return app
