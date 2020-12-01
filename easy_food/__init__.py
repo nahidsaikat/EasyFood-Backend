@@ -2,12 +2,14 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import CSRFProtect
 from flask_assets import Environment
+from flask_migrate import Migrate
 
 from easy_food.assets import compile_static_assets
 
 
 csrf = CSRFProtect()
 db = SQLAlchemy()
+migrate = Migrate()
 assets = Environment()
 
 
@@ -25,6 +27,7 @@ def create_app():
 
     csrf.init_app(app)
     db.init_app(app)
+    migrate.init_app(app, db)
     assets.init_app(app)
 
     with app.app_context():
