@@ -34,7 +34,8 @@ def create_app():
         from easy_food.urls import register_all_blueprints
         register_all_blueprints(app)
 
-        compile_static_assets(assets)
-
         db.create_all()
+
+        if app.config['FLASK_ENV'] == 'development':
+            compile_static_assets(assets)
         return app
