@@ -7,6 +7,7 @@ class Config:
     DEBUG = False
     TESTING = False
     FLASK_APP = 'wsgi.py'
+    FLASK_ENV = config('FLASK_ENV')
     SECRET_KEY = config('SECRET_KEY')
     SESSION_COOKIE_NAME = config('SESSION_COOKIE_NAME')
     STATIC_FOLDER = 'static'
@@ -19,16 +20,14 @@ class Config:
 
 
 class ProdConfig(Config):
-    FLASK_ENV = 'production'
+    pass
 
 
 class DevConfig(Config):
-    FLASK_ENV = 'development'
     DEBUG = True
     TESTING = True
 
 
 class TestConfig(Config):
-    FLASK_ENV = 'testing'
     DEBUG = True
     TESTING = True

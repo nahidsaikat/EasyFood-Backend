@@ -11,6 +11,7 @@ flask-wtf = "*"
 email-validator = "*"
 flask-assets = "*"
 python-decouple = "*"
+flask-login = "*"
 
 [dev-packages]
 

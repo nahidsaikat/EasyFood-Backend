@@ -7,6 +7,7 @@ from flask import (
     make_response,
     request
 )
+from flask_login import current_user, login_required
 from datetime import datetime as dt
 
 from easy_food import db
@@ -37,6 +38,7 @@ def success():
 
 
 @core_bp.route('/')
+@login_required
 def home():
     """Landing page."""
     nav = [{'name': 'Home', 'url': 'https://example.com/1'},
