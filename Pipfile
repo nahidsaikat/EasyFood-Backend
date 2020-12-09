@@ -7,10 +7,11 @@ name = "pypi"
 flask = "*"
 flask-sqlalchemy = "*"
 flask-migrate = "*"
-python-dotenv = "*"
 flask-wtf = "*"
 email-validator = "*"
 flask-assets = "*"
+python-decouple = "*"
+flask-login = "*"
 
 [dev-packages]
 
