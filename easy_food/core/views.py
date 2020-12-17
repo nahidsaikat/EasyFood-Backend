@@ -5,7 +5,8 @@ from flask import (
     render_template,
     redirect,
     make_response,
-    request
+    request,
+    session
 )
 from flask_login import current_user, login_required
 from datetime import datetime as dt
@@ -38,12 +39,13 @@ def success():
 
 
 @core_bp.route('/')
-@login_required
+# @login_required
 def home():
     """Landing page."""
     nav = [{'name': 'Home', 'url': 'https://example.com/1'},
            {'name': 'About', 'url': 'https://example.com/2'},
            {'name': 'Pics', 'url': 'https://example.com/3'}]
+    session['key'] = 'Show Users'
     return render_template('home.html',
                            nav=nav,
                            title="Jinja Demo Site",
@@ -79,5 +81,5 @@ def user_records():
         return render_template(
             'users.html',
             users=User.query.all(),
-            title="Show Users"
+            title=session.get("key", "Show Users")
         )

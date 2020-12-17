@@ -12,6 +12,8 @@ email-validator = "*"
 flask-assets = "*"
 python-decouple = "*"
 flask-login = "*"
+flask-session = "*"
+redis = "*"
 
 [dev-packages]
 
