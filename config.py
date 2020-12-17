@@ -1,4 +1,5 @@
 """Flask config."""
+import redis
 from decouple import config
 
 
@@ -12,6 +13,10 @@ class Config:
     SESSION_COOKIE_NAME = config('SESSION_COOKIE_NAME')
     STATIC_FOLDER = 'static'
     TEMPLATES_FOLDER = 'templates'
+
+    # Flask-Session
+    SESSION_TYPE = config('SESSION_TYPE')
+    # SESSION_REDIS = redis.from_url(config('SESSION_REDIS'))
 
     # Database
     SQLALCHEMY_DATABASE_URI = config("SQLALCHEMY_DATABASE_URI")
